@@ -1,94 +1,269 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #ffdde1 0%, #e692a0 100%);
+  --secondary-gradient: linear-gradient(135deg, #ffdde1 0%, #e692a0 100%);
+  --card-gradient: linear-gradient(135deg, #ffdde1 0%, #e692a0 100%);
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --accent-color: #e91e63;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Indie Flower", cursive;
 }
 
-header,
-footer,
-.flower-card {
-  background: linear-gradient(90deg, #ffdde1, #e692a0);
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: #f9f9f9;
+  min-height: 100vh;
 }
 
 header {
-  height: 15vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: var(--primary-gradient);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="white" opacity="0.1"/></svg>');
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-  font-size: 2rem;
+  font-family: "Indie Flower", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.intro {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  font-family: "Indie Flower", cursive;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .flower-card {
-  width: 28%;
-  height: 70vh;
-  margin: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.flower-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+  background: var(--card-gradient);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.card-header h3 {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.scientific-name {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.flower-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.flower-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.flower-info {
   display: flex;
   flex-direction: column;
+  gap: 0.8rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-evenly;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-  h2 {
-    font-size: 2rem;
-    color: #e91e63;
-  }
+.info-item:last-child {
+  border-bottom: none;
+}
 
-  img {
-    width: 70%;
-    height: 40vh;
-    border-radius: 8px;
-  }
-
-  p {
-    font-size: 1.5rem;
-    text-align: center;
-  }
+.label {
+  font-weight: 600;
+  color: var(--accent-color);
+  font-size: 0.9rem;
 }
 
 .curiosidades {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 40vh;
-  justify-content: space-evenly;
+  padding: 4rem 2rem;
+  background: white;
+  margin: 2rem 0;
+}
 
-  h2 {
-    color: #e91e63;
-    font-size: 2rem;
-  }
+.curiosidades h2 {
+  font-family: "Indie Flower", cursive;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--accent-color);
+  margin-bottom: 3rem;
+}
 
-  ul {
-    list-style: none;
-  }
+.curiosidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  li {
-    font-size: 1.5rem;
-  }
+.curiosidade-item {
+  background: var(--card-gradient);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.curiosidade-item:hover {
+  transform: translateY(-5px);
+}
+
+.curiosidade-item h4 {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.curiosidade-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 footer {
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #000;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
 
-  p {
-    font-size: 1.2rem;
-    font-weight: 700;
+footer p {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .curiosidades-grid,
+  .desafio-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro {
+    padding: 2rem 1rem;
+  }
+  
+  .curiosidades,
+  .tech-girls-info {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flower-card img {
+    height: 200px;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .curiosidade-item,
+  .desafio-item {
+    padding: 1.5rem;
   }
 }
